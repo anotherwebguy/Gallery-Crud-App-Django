@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% comment %} title {% endcomment %}
+{% block title %}New{% endblock title %}
+
+{% comment %} breadcrumb {% endcomment %}
+{% block bread %}
+<div class="mx-2 my-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{%url 'home' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">New</li>
+        </ol>
+    </nav>
+</div>
+{% endblock bread %}
+
+{% comment %} body {% endcomment %}
+{% block body %}
+<h1 class="display-6 my-2 d-flex justify-content-center">Add New Images</h1>
+<div class="container my-3 card p-4">
+    <form method="post" action="/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="formGroupExampleInput">Image Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="name" placeholder="Enter Image name" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Image Url</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="url" placeholder="Enter Image Url"required>
+        </div>        
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Image Details</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="detail" rows="4" required></textarea>
+        </div>
+        <button type="submit" name="addImage" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock body %}

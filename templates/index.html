@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+
+{% comment %} title {% endcomment %}
+{% block title %}Home{% endblock title %} 
+
+{% comment %} search bar {% endcomment %}
+{% block search %}
+<form class="form-inline my-2 my-lg-0" method="post" action="/">
+    {% csrf_token %}
+    <input
+      class="form-control mr-sm-2"
+      type="search"
+      name="search"
+      placeholder="Search by Name"
+      aria-label="Search"
+      required
+    />
+    <button class="btn btn-outline-success my-2 my-sm-0" name="searchName" type="submit">
+      Search
+    </button>
+</form>
+{% endblock search %}
+
+{% comment %} breadcrumb {% endcomment %}
+{% block bread %}
+<div class="mx-2 my-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+    </nav>
+</div>
+{% endblock bread %}
+
+{% comment %} body {% endcomment %}
+{% block body %}
+<div class="container my-4">
+    <div class="container d-flex justify-content-between ">
+        <h1 class="display-5">Gallery</h1><a href="/new/"><button type="button" class="btn btn-success">＋ADD</button></a>
+    </div>
+    <div class="row d-flex">
+        {% for item in images %}
+            {% comment %} image cards {% endcomment %}
+            <div class="col-md-4 my-3">
+                <div class="card shadow-sm">
+                <img src={{item.url}} class="card-img-top" height="270" width = "600px"alt="https://cdn.pixabay.com/photo/2014/02/27/16/10/tree-276014_960_720.jpg">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <p class="card-text"> {{item.detail|slice:"0:50"}}... </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <a href="/show/:{{item.id }}"><button type="button" class="btn btn-sm btn-outline-success">View</button></a>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+     
+    {% comment %} pagination buttons {% endcomment %}
+    <div class="container d-flex justify-content-between my-2">
+        {% if images.has_previous %}
+            <a href="{% url 'home' %}?page={{images.previous_page_number }}"><button
+                type="button"
+                class="btn btn-dark">
+                &larr; Previous
+            </button></a>
+        {% else %}
+            <button
+                type="button" disabled=true
+                class="btn btn-dark">
+                &larr; Previous
+            </button>
+        {% endif %}
+        {% if images.has_next %}
+            <a href="{% url 'home' %}?page={{images.next_page_number }}"><button
+                type="button" 
+                class="btn btn-dark">
+                Next &rarr;
+            </button></a>
+        {% else %}
+            <button
+                type="button" disabled=true
+                class="btn btn-dark">
+                Next &rarr;
+            </button>
+        {% endif %}
+      </div>
+
+</div>
+{% endblock body %}
+

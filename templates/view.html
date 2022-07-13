@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% comment %} title {% endcomment %}
+{% block title %}Show{% endblock title %}
+
+{% comment %} breadcrumb {% endcomment %}
+{% block bread %}
+<div class="mx-2 my-2">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{%url 'home' %}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Show:{{image.id}}</li>
+        </ol>
+    </nav>
+</div>
+{% endblock bread %}
+
+{% comment %} body {% endcomment %}
+{% block body %}
+<div class="container my-3">
+  <div class="card">
+      <!-- Card -->
+      <div class="card-header border-0 pb-0">
+          <div class="d-flex align-items-center justify-content-between p-2">
+              <div class="nav nav-divider">
+                <h6 class="nav-item card-title mb-0"> {{image.name}}</h6>
+              </div>
+              <div class="btn-group">
+                  <a href="/:{{image.id}}/edit"><button type="button" class="btn btn-sm btn-outline-primary ">Edit <i class='fas fa-edit'></i></button></a>
+                  <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#exampleModal">Delete <i class="fa-solid fa-trash-can"></i></button>
+              </div>
+          </div>
+      </div>
+      <div class="card-body">
+        <p>{{image.detail}}</p>
+        <img class="card-img" src={{image.url}} height="600px" alt="Post">
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This will delete this image details.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close <i class="fa fa-close"></i></button>
+        <a href="/delete/:{{image.id}}"><button type="button" class="btn btn-danger">Delete Anyways <i class="fa-solid fa-trash-can"></i></button></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
