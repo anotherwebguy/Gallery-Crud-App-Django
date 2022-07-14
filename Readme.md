@@ -12,12 +12,12 @@ Deployed app link: https://gallery-crud-app-hackerearth.herokuapp.com/
 
 ----
 ## Features:
-  1. Add new images to gallery
-  2. Edit images in Gallery
-  3. Delete images from Gallery
-  4. Search images by name in Gallery
-  5. View images in Gallery
-  6. Pagination support for showing 9 images per page in Gallery
+  1. <h2><b>Add new images to gallery:</b></h2> Images can be added to the Gallery by Entering Image name, Image url and Image detail.
+  2. <h2><b>Edit images in Gallery:</b></h2> Images already present in the gallery can be edited to change their Image url and Image detail.
+  3. <h2><b>Delete images from Gallery:</b></h2> Images can be deleted from the Gallery.
+  4. <h2><b>Search images by name in Gallery:</b></h2> Images can be searched by Image name from the Navbar Search bar.
+  5. <h2><b>View images in Gallery:</b></h2> Images can be viewed fully by its name, details and full resolution image.
+  6. <h2><b>Pagination support for showing 9 images per page in Gallery:</b></h2> The layout is structured in such a way that it shows only 9 items per page and rest of the data on the next pages.
 
 ----
 ## Demo:
