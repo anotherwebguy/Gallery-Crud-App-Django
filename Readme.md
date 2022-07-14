@@ -1,6 +1,8 @@
 # Gallery-Crud-App-Django
 A simple Gallery web-app made in Django with sqlite as an database. The web-app is responsive and mobile/device friendly
 
+Deployed app link: https://gallery-crud-app-hackerearth.herokuapp.com/
+
 ----
 ## Tech stack
 
