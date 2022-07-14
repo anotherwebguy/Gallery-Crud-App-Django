@@ -76,4 +76,19 @@ python manage.py runserver
 ## Deployment
 Deployments are managed via Heroku using Github. main branch is auto-deployed to https://gallery-crud-app-hackerearth.herokuapp.com/ after a git push
 
+For Deploying the app on heroku
+- Create your own git repository and push the project to it.
+  ```terminal
+  git init
+  git add .
+  git commit -m "creating repo"
+  git remote add origin <your repository link>
+  git branch -M main
+  git push origin main
+
+- Login to Heroku, Create an app and connect the github repo to it</br>
+  ![heroku](https://user-images.githubusercontent.com/66346161/178904584-344c7ccc-7c52-4720-aa54-09e823ff42b0.png)
+  
+- Click on Auto Deploy and Deploy branch Main</br>
+  Hurray!! The app will be deployed to the heroku url created by heroku and will be ready to use.
   
